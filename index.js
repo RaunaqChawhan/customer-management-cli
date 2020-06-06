@@ -19,3 +19,15 @@ const addCustomer = (customer) => {
     });
 }
 
+//Find customer
+const findCustomer = (name) => {
+    //Make case insensitive
+    const search = new RegExp(name, 'i');
+    Customer.find({$or: [{firstname: search}, {lastname: search}]})
+    .then(customer => {
+        console.info(customer);
+        console.info(`${customer.length} matches`);
+        db.close();
+    })
+}
+
