@@ -15,7 +15,7 @@ const Customer = require('./models/customer');
 const addCustomer = (customer) => {
     Customer.create(customer).then(customer => {
         console.info('New Customer Added');
-        db.close();
+        db.close();     //close it otherwise it will hang
     });
 }
 
